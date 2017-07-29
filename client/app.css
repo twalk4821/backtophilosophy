@@ -1,0 +1,70 @@
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+	font-family: "Industria LT Std";
+	font-size: 75px;
+}
+
+body {
+	
+}
+
+#raptor {
+	position: relative;
+	width: 15em;
+	height: 15em;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+form {
+	position:relative;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	margin: 30px;
+  	width:35%;
+  	left:27.5%;
+}
+
+input {
+	width: 100%
+	margin-left: 5px;
+}
+
+.path {
+	position: relative;
+	display: flex;
+	width:30%;
+	left:32.5%;
+  	align-items: left;
+  	justify-content: left;
+  	
+}
+
+
+#bedrock {
+	background-image: url("bedrock.jpg");
+	background: transparent;
+	background-repeat: repeat-y;
+	width:100%;
+	height:50%;
+}
+
+.arrow {
+	width: 1em;
+	height: 1em;
+}
+
+link-item {
+	display: flex;
+	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+}
+

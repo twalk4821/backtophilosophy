@@ -1,1 +1,26 @@
-<div>Hello World!</div>
+<h1>Back to Philosophy!</h1>
+<div class="container">
+<img id="raptor" src="https://imgflip.com/s/meme/Philosoraptor.jpg">
+</div>
+
+
+<form>
+	<label>SEARCH:</label>
+  	<input class="form-control" type="text" ng-model="app.title" placeholder="Enter a wikipedia page...">
+  	<button type="submit" class="btn btn-primary" ng-click="app.handleSubmit()">Submit</button>
+</form>
+
+<div class="path">
+	<ul>
+		<link-item ng-repeat="link in app.path" link="link"></link-item>
+	</ul>
+</div>
+
+<div ng-if="app.found">
+	<h3>{{app.title}} is {{app.path.length}} links away from philosophical bedrock!</h3>
+	<img id="bedrock" src="https://s-media-cache-ak0.pinimg.com/600x315/3a/22/0c/3a220c2c7e693bcfbe43b895843a6f15.jpg">
+</div>
+
+<div ng-if="app.error">
+	<h3>{{app.errorMessage}}</h3>
+</div>
