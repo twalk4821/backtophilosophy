@@ -1,14 +1,14 @@
 var jsdom = require('jsdom');
-const JSDOM = jsdom.JSDOM
+var JSDOM = jsdom.JSDOM
 
-const getFirstValidLink = function(html) {
-	const dom = new JSDOM(html);
+var getFirstValidLink = function(html) {
+	var dom = new JSDOM(html);
 
 	//handle different format for redirect wiki pages
 	if (isRedirect(dom)) {
 		return getLinkFromRedirect(dom)
 	} else {
-		let links = dom.window.document.querySelectorAll("p > a");
+		var links = dom.window.document.querySelectorAll("p > a");
 		
 		for (link of links) { 
 			if (isValid(link)) {
@@ -20,18 +20,18 @@ const getFirstValidLink = function(html) {
 
 
 
-const isValid = function(link) {
+var isValid = function(link) {
 	return isNotRed(link) && isNotParenthesized(link);
 }
 
-const isNotRed = function (link) {
-	let href = link.href;
-	let ending = href.slice(href.length - 9, href.length);
+var isNotRed = function (link) {
+	var href = link.href;
+	var ending = href.slice(href.length - 9, href.length);
 	return ending !== "redlink=1"
 }
-const isNotParenthesized = function(link) {
-	let parentText = link.parentNode.innerHTML;
-	let indexOfLink = parentText.indexOf(`<a href="${link.href}"`);
+var isNotParenthesized = function(link) {
+	var parentText = link.parentNode.innerHTML;
+	var indexOfLink = parentText.indexOf(`<a href="${link.href}"`);
 
 	for (var i = indexOfLink; i>0; i--) {
 		if (parentText[i] === "(") {
@@ -44,15 +44,15 @@ const isNotParenthesized = function(link) {
 	return true
 }
 
-const isRedirect = function(dom) {
+var isRedirect = function(dom) {
 	return dom.window.document.querySelector("p").textContent === "Redirect to:"
 }
 
-const getLinkFromRedirect = function(dom) {
+var getLinkFromRedirect = function(dom) {
 	return dom.window.document.querySelector("ul > li > a").href
 }
 
-const formatResponse = function(link) {
+var formatResponse = function(link) {
 	if (link) {
 		return {
 			link: link,
