@@ -14,9 +14,9 @@ app.use('/', express.static(path.join(__dirname, '/client')))
 app.use(express.static(path.join(__dirname, '/node_modules/angular')));
 
 app.all('/wiki', function(req, res) {
-	let html = req.body.html;
-	let link = util.getFirstValidLink(html)
-	let response = util.formatResponse(link)
+	var html = req.body.html;
+	var link = util.getFirstValidLink(html)
+	var response = util.formatResponse(link)
 	res.send(response);
 	
 });
