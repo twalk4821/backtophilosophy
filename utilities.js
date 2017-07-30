@@ -10,8 +10,7 @@ var getFirstValidLink = function(html) {
 	} else {
 		var links = dom.window.document.querySelectorAll("p > a");
 		
-		for (var i = 0; i<links.length; i++) { 
-			var link = links[i];
+		for (link of links) { 
 			if (isValid(link)) {
 				return link.href
 			}
