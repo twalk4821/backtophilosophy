@@ -1,7 +1,7 @@
 angular.module('saferize')
 .service('wiki', function ($http) {
 	this.getPage = function(title, callback) {
-		var url = this.formatURLFromTitle(title);
+		url = this.formatURLFromTitle(title);
 		$http.get(url)
 		.then(function(data) {
 			if (data.data.error) {
@@ -18,16 +18,16 @@ angular.module('saferize')
 	}	
 
 	this.getNextLinkInPath = function(title, callback, path) {
-		var url = this.formatURLFromTitle(title);
+		url = this.formatURLFromTitle(title);
 		$http.get(url)
 		.then(function(data) {
-			var html = data.data.parse.text["*"];
+			let html = data.data.parse.text["*"];
 			return $http.post('/wiki', {html:html});
 		}.bind(this))
 		.then(function(data) {
-			var response = data.data;
-			var link = response.link;
-			var status = response.status;
+			let response = data.data;
+			let link = response.link;
+			let status = response.status;
 
 			if (status === 200) {
 				
@@ -36,18 +36,15 @@ angular.module('saferize')
 					response.path = path;
 					response.message = "PATH FOUND"
 					callback(null, response);
-
 				} else if (this.isALoop(link, path)) {
 					path.push(link);
 					response.path = path;
 					response.status = 201;
 					response.message = "INFINITE LOOP"
 					callback(null, response);
-
 				} else {
-					//continue
 					path.push(link);
-					var title = this.linkToTitle(link);
+					let title = this.linkToTitle(link);
 					this.getNextLinkInPath(title, callback, path);
 				}
 			} else {
@@ -62,10 +59,10 @@ angular.module('saferize')
 	}.bind(this);
 
 	this.formatURLFromTitle = function(title) {
-		var words = title.split(" ");
-		var page = ""
+		let words = title.split(" ");
+		let page = ""
 		for (var i = 0; i<words.length; i++) {
-			var word = words[i];
+			let word = words[i];
 			page+=word;
 			if (i!==words.length-1) {
 				page+="%20"
@@ -75,7 +72,7 @@ angular.module('saferize')
 			page = page.slice(0, page.indexOf('#'))
 		}
 
-		var url = `https://en.wikipedia.org/w/api.php?action=parse&page=${page}&prop=text&origin=*&format=json`
+		let url = `https://en.wikipedia.org/w/api.php?action=parse&page=${page}&prop=text&origin=*&format=json`
 		return url
 	}
 
