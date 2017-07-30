@@ -49,7 +49,7 @@ safe
 	this.error = false;
 	this.errorMessage = ""
 	this.errorMessages = {
-		invalid: "The page title you entered did not come back with a valid page. Either you mispelled something, or Wikipedia hasn't added that entry yet!",
+		invalid: "The page title you entered did not come back with a valid page. Either you mispelled something, or nobody has added that entry yet!",
 		deadend: "We hit a dead end! No more links could be found on the page."
 	}
 	this.displayErrorMessage = function(type) {
