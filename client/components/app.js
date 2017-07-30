@@ -15,7 +15,7 @@ safe
 .controller('appCtrl', function(wiki, $http) {
 	this.path = [];
 	this.found = false;
-	this.title = "Hope";
+	this.title = "Dinosaur";
 
 	this.getPage = function() {
 		wiki.getPage(this.title, function (err, data) {
