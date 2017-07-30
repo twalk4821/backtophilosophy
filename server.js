@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var util = require('./utilities.js')
 
-var port = process.env.PORT || 3000;
+var port = 3000
 
 var app = express();
 
