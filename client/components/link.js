@@ -13,7 +13,9 @@ angular.module('saferize')
 })
 .controller('linkCtrl', function() {
 	this.formatLink = function(link) {
+		//ignore prefix and underscores
 		var formattedLink = link.slice(6, link.length).split('_').map(function(word) {
+			//ignore parethesized words
 			if (word[0] === '(') return "";
 			else return word;
 		}).join(" ")

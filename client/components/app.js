@@ -1,6 +1,5 @@
 var safe = angular.module('saferize', []);
 
-
 safe
 .directive('app', function() {
 	return {
@@ -25,7 +24,7 @@ safe
 				this.getPathForPage()
 			}
 		}.bind(this))
-	}.bind(this)
+	}.bind(this);
 
 	this.getPathForPage = function() {
 			wiki.getPathForPage(this.title, function(err, data) {
@@ -37,7 +36,7 @@ safe
 
 			}
 		}.bind(this), this.path);
-	}.bind(this)
+	}.bind(this);
 
 	this.handleSubmit = function() {
 		this.path = [];
@@ -46,15 +45,16 @@ safe
 		this.getPage()
 	}.bind(this);
 
+	//error handling
 	this.error = false;
 	this.errorMessage = ""
 	this.errorMessages = {
-		invalid: "The page title you entered did not come back with a valid page. Either you mispelled something, or Wikipedia hasn't added that entry yet!",
+		invalid: "The page title you entered did not come back with a valid page. Either you mispelled something, or nobody has added that entry yet!",
 		deadend: "We hit a dead end! No more links could be found on the page."
-	}
+	};
 	this.displayErrorMessage = function(type) {
 		this.error = true;
 		this.errorMessage = this.errorMessages[type];
-	}.bind(this)
+	}.bind(this);
 
 })

@@ -1,3 +1,5 @@
+/*General Styles*/
+
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	font-family: "Industria LT Std";
@@ -16,6 +18,7 @@ body {
 	padding: 0;
 }
 
+/*Input form*/
 .container {
 	display: flex;
   	align-items: center;
@@ -37,6 +40,7 @@ input {
 	margin-left: 5px;
 }
 
+/*Path (link list)*/
 .path {
 	position: relative;
 	display: flex;
@@ -45,15 +49,6 @@ input {
   	align-items: left;
   	justify-content: left;
   	
-}
-
-
-#bedrock {
-	background-image: url("bedrock.jpg");
-	background: transparent;
-	background-repeat: repeat-y;
-	width:100%;
-	height:50%;
 }
 
 .arrow {
@@ -67,4 +62,15 @@ link-item {
   	align-items: center;
   	justify-content: center;
 }
+
+/*Footer*/
+#bedrock {
+	background-image: url("bedrock.jpg");
+	background: transparent;
+	background-repeat: repeat-y;
+	width:100%;
+	height:50%;
+}
+
+
 
